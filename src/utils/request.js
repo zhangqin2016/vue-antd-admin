@@ -49,7 +49,7 @@ async function request(url, method, params) {
 function setAuthorization(auth, authType = AUTH_TYPE.BEARER) {
   switch (authType) {
     case AUTH_TYPE.BEARER:
-      Cookie.set(xsrfHeaderName, 'Bearer ' + auth.token, {expires: auth.expireAt})
+      localStorage.setItem(xsrfHeaderName, 'Bearer ' + auth.token)
       break
     case AUTH_TYPE.BASIC:
     case AUTH_TYPE.AUTH1:
